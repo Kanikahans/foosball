@@ -3,10 +3,11 @@ package com.know.dao;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import com.know.model.User;
 
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 	
 	private JdbcTemplate jdbcTemplate;
 	

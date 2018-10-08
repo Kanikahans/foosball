@@ -1,6 +1,10 @@
 package com.know.service;
 
-public class UserManager {
+import com.know.model.User;
+
+public interface UserManager {
+	
+	void saveUser(User user);
 	
 
 }

@@ -18,6 +18,8 @@ public class UserController {
 	
 	private UserDAO userDAO;
 	
+	private UserManager userManager;
+	
 	
 	public void setUserDAO(UserDAO userDAO)
 	{
@@ -25,6 +27,21 @@ public class UserController {
 		
 	}
 	
+	public void setUserManager(UserManager userManager)
+	{
+		this.userManager=userManager;
+		
+	}
+	
+	public UserDAO getUserDAO()
+	{
+		return userDAO;
+	}
+	
+	public UserManager getuserManager()
+	{
+		return userManager;
+	}
 	@GetMapping("/")
 	public String showIndexPage(ModelMap model)
 	{
@@ -44,7 +61,9 @@ public class UserController {
 	{
 		System.out.println("method post requesstttt");
 		System.out.println(user.getFirstName());
-		userDAO.print();
+		System.out.println("userDAO" + userManager);
+		userManager.saveUser(user);
+		//userDAO.print();
 		
 		//userDAO.saveUser(user);
 		System.out.println("user added successfully");
