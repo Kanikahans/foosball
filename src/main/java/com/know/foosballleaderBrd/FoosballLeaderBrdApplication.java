@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.know.controllers")
+@ComponentScan({"com.know.controllers","com.know.dao","com.know.service","com.know.model"})
 public class FoosballLeaderBrdApplication {
 	
 	@Autowired

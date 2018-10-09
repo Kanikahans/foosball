@@ -16,16 +16,10 @@ import com.know.service.UserManager;
 public class UserController {
 	
 	
-	private UserDAO userDAO;
-	
+	@Autowired
 	private UserManager userManager;
 	
 	
-	public void setUserDAO(UserDAO userDAO)
-	{
-		this.userDAO=userDAO;
-		
-	}
 	
 	public void setUserManager(UserManager userManager)
 	{
@@ -33,10 +27,6 @@ public class UserController {
 		
 	}
 	
-	public UserDAO getUserDAO()
-	{
-		return userDAO;
-	}
 	
 	public UserManager getuserManager()
 	{

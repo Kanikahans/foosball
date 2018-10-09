@@ -1,5 +1,6 @@
 package com.know.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.know.dao.UserDAO;
@@ -8,6 +9,7 @@ import com.know.model.User;
 @Service("UserManager")
 public class UserManagerImpl implements UserManager {
 	
+	@Autowired
 	private UserDAO userDAO;
 
 	@Override
