@@ -1,5 +1,7 @@
 package com.know.dao;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
@@ -50,6 +52,15 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 		
 		
 		
+	}
+	
+	@Override
+	public List<String> listUsers()
+	{
+		jdbcTemplate = new JdbcTemplate(dataSource);
+		System.out.println();
+		String sql="Select username from player";
+		return getJdbcTemplate().queryForList(sql,String.class);
 	}
 	
 	public void print()
