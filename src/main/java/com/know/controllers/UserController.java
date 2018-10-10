@@ -66,4 +66,11 @@ public class UserController {
 		//System.out.println("inside Register User");
 		return model;
 	}
+	
+	@GetMapping("/registerTeam")
+	public String getAllUsers(ModelMap model)
+	{
+		System.out.println("inside Register User");
+		return "registerUser";
+	}
 }
