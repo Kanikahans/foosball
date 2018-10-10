@@ -12,17 +12,16 @@
     <h1>Welcome to foosball Doubles Register User Page</h1>
     <!--  <form onsubmit="alert('submit!');return false"> -->
     
-    <form:form method="post" action="/registerTeam" modelAttribute="Team">
-        TeamName : <input type="text" name="teamName"/>
-        PlayerOne : <form:select path = "player1">
+    <form:form method="post" action="/playMatch" modelAttribute="Match">
+        TeamOne : <form:select path = "teamA">
                      <form:option value = "NONE" label = "Select"/>
-                     <form:options items = "${player1}" />
+                     <form:options items = "${teamA}" />
                   </form:select>    
-        PlayerTwo : <form:select path = "player2">
+        TeamTwo : <form:select path = "teamB">
                      <form:option value = "NONE" label = "Select"/>
-                     <form:options items = "${player2}" />
+                     <form:options items = "${teamB}" />
                   </form:select>    
-        <input type="submit" />
+        <input type="submit" value="Play"/>
         </form:form>
 <!--      <from name="UserForm" action="/registerUser" method="post" id="UserForm"> -->
 <!--     	<div> -->
