@@ -139,7 +139,7 @@ public class UserController {
 	public ModelAndView playMatch(Match match, ModelAndView model) {
 		System.out.println("method post requesstttt");
 		//System.out.println(team.getTeamName());
-		teamManager.saveTeam(team);
+		//teamManager.saveTeam(team);
 		// userDAO.print();
 
 		// userDAO.saveUser(user);
@@ -148,7 +148,7 @@ public class UserController {
 		// model.addAttribute("firstName", user.getFirstName());
 		// model.addAttribute("lastName", user.getFirstName());
 		// model.addAttribute("userName", user.getFirstName());
-		model.addObject("Team", team);
+		//model.addObject("Team", team);
 		// model.addAttribute("user", user);
 		// System.out.println("inside Register User");
 		return model;
