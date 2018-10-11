@@ -9,7 +9,7 @@
 
 <body>
     <font color="red">${errorMessage}</font>
-    <h1>Welcome to foosball Doubles Register User Page</h1>
+    <h1>Welcome to foosball Doubles Play Match </h1>
     <!--  <form onsubmit="alert('submit!');return false"> -->
     
     <form:form method="post" action="/playMatch" modelAttribute="Match">
@@ -23,6 +23,11 @@
                   </form:select>    
         <input type="submit" value="Play"/>
         </form:form>
+         <table align="center">
+                <tr>
+                    <td style="font-style: italic; color: red;">${message}</td>
+                </tr>
+            </table>
 </body>
 
 </html>

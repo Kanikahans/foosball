@@ -9,7 +9,7 @@
 
 <body>
     <font color="red">${errorMessage}</font>
-    <h1>Welcome to foosball Doubles Register User Page</h1>
+    <h1>Welcome to foosball Doubles Register Team Page</h1>
     <!--  <form onsubmit="alert('submit!');return false"> -->
     
     <form:form method="post" action="/registerTeam" modelAttribute="Team" onsubmit="return ValidationEvent()">
@@ -24,6 +24,11 @@
                   </form:select>    
         <input type="submit" />
         </form:form>
+        <table align="center">
+                <tr>
+                    <td style="font-style: italic; color: red;">${message}</td>
+                </tr>
+            </table>
 
     <script>
 function ValidationEvent() {

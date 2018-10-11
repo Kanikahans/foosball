@@ -1,6 +1,7 @@
 package com.know.controllers;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -68,6 +69,7 @@ public class UserController {
 		// model.addAttribute("lastName", user.getFirstName());
 		// model.addAttribute("userName", user.getFirstName());
 		model.addObject("user", user);
+		model.addObject("message", "User Added Successfully!!");
 		// model.addAttribute("user", user);
 		// System.out.println("inside Register User");
 		return model;
@@ -110,6 +112,7 @@ public class UserController {
 		// model.addAttribute("lastName", user.getFirstName());
 		// model.addAttribute("userName", user.getFirstName());
 		model.addObject("Team", team);
+		model.addObject("message", "Team Added Successfully!!");
 		// model.addAttribute("user", user);
 		// System.out.println("inside Register User");
 		return model;
@@ -143,8 +146,12 @@ public class UserController {
 	public ModelAndView playMatch(Match match, ModelAndView model) {
 		System.out.println("method post requesstttt");
 		match.getTeamA();
-		int win=((int) (Math.random()*(1 - 0))) + 0;
-		if(win==0)
+		Random r = new Random();
+		int Low = 0;
+		int High = 10;
+		int win = r.nextInt(High-Low) + Low;
+		System.out.println("win " + win);
+		if(win<5)
 		{
 			match.setWinningTeam(match.getTeamA());
 		}
@@ -162,6 +169,7 @@ public class UserController {
 		// userDAO.saveUser(user);
 		System.out.println("user added successfully");
 		model.addObject("Match", match);
+		model.addObject("message",match.getWinningTeam() +"Team Won!!");
 		//ModelAndView modelAndView =new ModelAndView("playMatch", "Match", match);
 		return model;
 	}
