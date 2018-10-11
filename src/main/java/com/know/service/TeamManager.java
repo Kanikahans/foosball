@@ -10,5 +10,5 @@ public interface TeamManager {
 	
 	List<String> listAllTeams();
 	
-
+	List<Team> showLeaderBoard();
 }

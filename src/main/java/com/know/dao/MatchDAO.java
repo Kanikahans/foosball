@@ -10,5 +10,7 @@ public interface MatchDAO {
 	
 	public void saveResult(Match match);
 	
+	
+	
 
 }

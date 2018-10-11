@@ -16,6 +16,7 @@ import com.know.dao.UserDAOImpl;
 import com.know.model.Match;
 import com.know.model.Team;
 import com.know.model.User;
+import com.know.service.MatchManager;
 import com.know.service.TeamManager;
 import com.know.service.UserManager;
 
@@ -27,6 +28,9 @@ public class UserController {
 
 	@Autowired
 	private TeamManager teamManager;
+	
+	@Autowired
+	private MatchManager matchManager;
 
 	public void setUserManager(UserManager userManager) {
 		this.userManager = userManager;
@@ -39,7 +43,7 @@ public class UserController {
 
 	@GetMapping("/")
 	public String showIndexPage(ModelMap model) {
-		System.out.println("yooooooooooooooooooooooooooooooooooo");
+		//System.out.println("yooooooooooooooooooooooooooooooooooo");
 		return "index";
 	}
 
@@ -52,8 +56,8 @@ public class UserController {
 	@PostMapping("/registerUser")
 	public ModelAndView UserRegisteration(User user, ModelAndView model) {
 		System.out.println("method post requesstttt");
-		System.out.println(user.getFirstName());
-		System.out.println("userDAO" + userManager);
+		//System.out.println(user.getFirstName());
+		//System.out.println("userDAO" + userManager);
 		userManager.saveUser(user);
 		// userDAO.print();
 
@@ -138,20 +142,43 @@ public class UserController {
 	@PostMapping("/playMatch")
 	public ModelAndView playMatch(Match match, ModelAndView model) {
 		System.out.println("method post requesstttt");
+		match.getTeamA();
+		int win=((int) (Math.random()*(1 - 0))) + 0;
+		if(win==0)
+		{
+			match.setWinningTeam(match.getTeamA());
+		}
+		else
+		{
+			match.setWinningTeam(match.getTeamB());
+		}
+		System.out.println(match.getWinningTeam());
+		
 		//System.out.println(team.getTeamName());
 		//teamManager.saveTeam(team);
 		// userDAO.print();
+		matchManager.saveMatchResult(match);
 
 		// userDAO.saveUser(user);
 		System.out.println("user added successfully");
-
-		// model.addAttribute("firstName", user.getFirstName());
-		// model.addAttribute("lastName", user.getFirstName());
-		// model.addAttribute("userName", user.getFirstName());
-		//model.addObject("Team", team);
-		// model.addAttribute("user", user);
-		// System.out.println("inside Register User");
+		model.addObject("Match", match);
+		//ModelAndView modelAndView =new ModelAndView("playMatch", "Match", match);
 		return model;
+	}
+	
+	
+	@GetMapping("/leaderBoard")
+	public ModelAndView displayLeaderBoard() {
+
+		System.out.println("inside Register Team");
+		//Team team = new Team();
+		// List<String> userList=userManager.listAllUsers();
+		List<Team> team=teamManager.showLeaderBoard();
+		System.out.println(team);
+		ModelAndView modelAndView =new ModelAndView("leaderBoard", "Team", team);
+				//new ModelAndView("registerTeam", team) ;
+				//new ModelAndView("registerTeam", "command", team);
+		return modelAndView;
 	}
 
 	public TeamManager getTeamManager() {
@@ -160,6 +187,14 @@ public class UserController {
 
 	public void setTeamManager(TeamManager teamManager) {
 		this.teamManager = teamManager;
+	}
+
+	public MatchManager getMatchManager() {
+		return matchManager;
+	}
+
+	public void setMatchManager(MatchManager matchManager) {
+		this.matchManager = matchManager;
 	}
 
 }

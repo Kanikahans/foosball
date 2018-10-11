@@ -31,7 +31,12 @@ public class TeamManagerImpl implements TeamManager {
 		//return null;
 	}
 
-
+	@Override
+	public List<Team> showLeaderBoard() {
+		// TODO Auto-generated method stub
+		return teamDAO.displayLeaderBoard();
+		//return null;
+	}
 
 	public TeamDAO getTeamDAO() {
 		return teamDAO;
@@ -42,5 +47,7 @@ public class TeamManagerImpl implements TeamManager {
 	public void setTeamDAO(TeamDAO teamDAO) {
 		this.teamDAO = teamDAO;
 	}
+	
+	
 
 }

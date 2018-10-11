@@ -12,42 +12,32 @@
     <h1>Welcome to foosball Doubles Register User Page</h1>
     <!--  <form onsubmit="alert('submit!');return false"> -->
     
-    <form:form method="post" action="/registerTeam" modelAttribute="Team">
+    <form:form method="post" action="/registerTeam" modelAttribute="Team" onsubmit="return ValidationEvent()">
         TeamName : <input type="text" name="teamName"/>
-        PlayerOne : <form:select path = "player1">
+        PlayerOne : <form:select path = "player1" id="player1">
                      <form:option value = "NONE" label = "Select"/>
                      <form:options items = "${player1}" />
                   </form:select>    
-        PlayerTwo : <form:select path = "player2">
+        PlayerTwo : <form:select path = "player2" id="player2">
                      <form:option value = "NONE" label = "Select"/>
                      <form:options items = "${player2}" />
                   </form:select>    
         <input type="submit" />
         </form:form>
-<!--      <from name="UserForm" action="/registerUser" method="post" id="UserForm"> -->
-<!--     	<div> -->
-<!--     		FirstName : -->
-<!--     		<input type='text' name='firstName' value=''>  -->
-<!--     	</div> -->
-<!--     	<div> -->
-<!--     		LastName : -->
-<!--     		<input type='text' name='lastName' value=''>  -->
-<!--     	</div> -->
-<!--     	<div> -->
-<!--     		UserName : -->
-<!--     		<input type='text' name='userName' value=''>  -->
-<!--     	</div> -->
-<!--     	<div> -->
-<!--     		<input type="button" onclick="myFunction()" value="Register User"> -->
-<!--     	</div> -->
-    	
-<!--     </from> -->
+
     <script>
-function myFunction() {
-	console.log("HELLLLLLLLLLLLLLLOOOOOOOOOOOOOOO");
-	console.log(document.getElementById("UserForm"));
+function ValidationEvent() {
+	String player1=document.getElementById("player1").value;
+	String player2=document.getElementById("player2").value;
+	alert(player1.localeCompare(player2));
 	
-    document.getElementById("UserForm").submit();
+	if(player1.localeCompare(player2)==0)
+		{
+		alert(Player One and Player Two cannot be same);
+		return false;
+		}
+	else
+	return true;
 }
 </script>
 </body>

@@ -4,6 +4,7 @@ public class Team {
 	private String teamName;
 	private String player1;
 	private String player2;
+	private int team_score;
 	public String getTeamName() {
 		return teamName;
 	}
@@ -21,6 +22,12 @@ public class Team {
 	}
 	public void setPlayer2(String player2) {
 		this.player2 = player2;
+	}
+	public int getTeam_score() {
+		return team_score;
+	}
+	public void setTeam_score(int team_score) {
+		this.team_score = team_score;
 	}
 	
 

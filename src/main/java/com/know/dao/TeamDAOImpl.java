@@ -1,5 +1,7 @@
 package com.know.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -7,6 +9,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -64,9 +67,21 @@ public class TeamDAOImpl extends JdbcDaoSupport implements TeamDAO {
 		return getJdbcTemplate().queryForList(sql,String.class);
 	}
 	
-	public void print()
+	@Override
+	public List<Team> displayLeaderBoard()
 	{
-		System.out.println("Calling DAIIIIIIIIII");
+		jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql="Select * from team order by team_score desc";
+		return getJdbcTemplate().query(sql, new RowMapper<Team>() {
+			 public Team mapRow(ResultSet rs, int row) throws SQLException {  
+		            Team team=new Team();
+		            team.setTeamName(rs.getString(1));
+		            team.setPlayer1(rs.getString(2));
+		            team.setPlayer2(rs.getString(3));
+		            team.setTeam_score(rs.getInt(4));
+		            return team;
+		        }  
+		});
 	}
 
 }
