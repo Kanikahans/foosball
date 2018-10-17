@@ -13,11 +13,11 @@
     <!--  <form onsubmit="alert('submit!');return false"> -->
     
     <form:form method="post" action="/playMatch" modelAttribute="Match">
-        TeamOne : <form:select path = "teamA">
+        TeamOne : <form:select path = "teamA" id="teamA">
                      <form:option value = "NONE" label = "Select"/>
                      <form:options items = "${teamA}" />
                   </form:select>    
-        TeamTwo : <form:select path = "teamB">
+        TeamTwo : <form:select path = "teamB" id="teamB">
                      <form:option value = "NONE" label = "Select"/>
                      <form:options items = "${teamB}" />
                   </form:select>    
@@ -28,6 +28,26 @@
                     <td style="font-style: italic; color: red;">${message}</td>
                 </tr>
             </table>
+			
+			    <script>
+
+function ValidationEvent() {
+	var teamA=document.getElementById("teamA").value;
+	var teamB=document.getElementById("teamB").value;
+	if(teamA===teamB)
+		{
+		alert("teamA and teamB cannot be same");
+		return false;
+		}
+	else
+	return true;
+	
+	return true;
+}
+
+</script>
+
 </body>
+
 
 </html>

@@ -31,19 +31,21 @@
             </table>
 
     <script>
+
 function ValidationEvent() {
-	String player1=document.getElementById("player1").value;
-	String player2=document.getElementById("player2").value;
-	alert(player1.localeCompare(player2));
-	
-	if(player1.localeCompare(player2)==0)
+	var player1=document.getElementById("player1").value;
+	var player2=document.getElementById("player2").value;
+	if(player1===player2)
 		{
-		alert(Player One and Player Two cannot be same);
+		alert("Player 1 and Player 2 cannot be same");
 		return false;
 		}
 	else
 	return true;
+	
+	return true;
 }
+
 </script>
 </body>
 
