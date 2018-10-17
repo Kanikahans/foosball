@@ -10,10 +10,10 @@
     <font color="red">${errorMessage}</font>
     <h1>Welcome to foosball Doubles </h1>
     <div>
-    	<a href="#">Register User</a><br/>
-    	<a href="#">Register Team</a><br/>
-    	<a href="#">Play Match</a><br/>
-    	<a href="#">LeaderBoard</a><br/>
+    	<a href="registerUser">Register User</a><br/>
+    	<a href="registerTeam">Register Team</a><br/>
+    	<a href="playMatch">Play Match</a><br/>
+    	<a href="leaderBoard">LeaderBoard</a><br/>
     </div>
     
     <%-- <form method="post">
